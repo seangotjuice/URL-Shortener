@@ -1,0 +1,123 @@
+{{!-- <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="../public/stylesheet/style.css" />
+
+  </head>
+  <body>
+    {{! <h1
+      style="height: 50px;width: fit-content;padding: 0 auto;padding: auto 0;padding: 0 auto;margin: 20px auto;"
+    >URL Shortener</h1>
+
+    <form
+      action="/generate"
+      method="POST"
+      style="width:fit-content;height:fit-content; margin:200px auto"
+    >
+      <input
+        name="input"
+        id="input"
+        type="text"
+        placeholder="input URL here"
+        value=""
+        required
+      />
+      <button
+        type="submit"
+        class="button-19"
+        role="button"
+        style="
+    margin-left: 10px;
+"
+      >Generate</button>
+    </form> }}
+    {{{body}}}
+  </body>
+</html> --}}
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="../../public/stylesheet/style.css" />
+    <style>
+      body { background-image:
+      url("https://plus.unsplash.com/premium_photo-1674118771197-de18d929a7c7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2064&q=80");
+      background-color: rgb(234, 234, 234); background-repeat: no-repeat;
+      background-size: 1036px 582px; background-position: center; } h1 { margin:
+      auto 0; } .button-19 { appearance: button; background-color: #1899d6;
+      border: solid transparent; border-radius: 16px; border-width: 0 0 4px;
+      box-sizing: border-box; color: #ffffff; cursor: pointer; display:
+      inline-block; font-family: din-round, sans-serif; font-size: 15px;
+      font-weight: 700; letter-spacing: 0.8px; line-height: 20px; margin: 0;
+      outline: none; overflow: visible; padding: 13px 16px; text-align: center;
+      text-transform: uppercase; touch-action: manipulation; transform:
+      translateZ(0); transition: filter 0.2s; user-select: none;
+      -webkit-user-select: none; vertical-align: middle; white-space: nowrap; }
+      .button-19:after { background-clip: padding-box; background-color:
+      #1cb0f6; border: solid transparent; border-radius: 16px; border-width: 0 0
+      4px; bottom: -4px; content: ""; left: 0; position: absolute; right: 0;
+      top: 0; z-index: -1; } .button-19:main, .button-19:focus { user-select:
+      auto; } .button-19:hover:not(:disabled) { filter: brightness(1.1);
+      -webkit-filter: brightness(1.1); } .button-19:disabled { cursor: auto; }
+
+    </style>
+  </head>
+  <body>
+    <h1
+      style="height: 50px;width: fit-content;padding: 0 auto;padding: auto 0;padding: 0 auto;margin: 20px auto;"
+    >URL Shortener</h1>
+
+    <form
+      action="/generate"
+      method="POST"
+      style="width:fit-content;height:fit-content; margin:200px auto 10px"
+    >
+      <input
+        name="input"
+        id="input"
+        type="text"
+        placeholder="input URL here"
+        value=""
+        required
+      />
+      <button
+        type="submit"
+        class="button-19"
+        role="button"
+        style="
+    margin-left: 10px;
+"
+      >Generate</button>
+    </form>
+    <div
+      class="result"
+      style="
+    height: fit-content;
+    width: fit-content;
+    margin: 0 auto;
+    display: flex;
+"
+    >
+      <div
+        class="output"
+        style="
+    background: white;
+    border-radius: 0%;
+    width: 400px;
+    opacity: 80%;
+    margin-right: 20px;
+    padding:5px;
+"
+      >Your output here</div>
+      <button class="copy">copy</button>
+      <button href="/" class="refresh">Refresh Page</button>
+    </div>
+
+  </body>
+</html>
