@@ -1,42 +1,4 @@
-{{!-- <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>URL Shortener</title>
-    <link rel="stylesheet" href="../public/stylesheet/style.css" />
 
-  </head>
-  <body>
-    {{! <h1
-      style="height: 50px;width: fit-content;padding: 0 auto;padding: auto 0;padding: 0 auto;margin: 20px auto;"
-    >URL Shortener</h1>
-
-    <form
-      action="/generate"
-      method="POST"
-      style="width:fit-content;height:fit-content; margin:200px auto"
-    >
-      <input
-        name="input"
-        id="input"
-        type="text"
-        placeholder="input URL here"
-        value=""
-        required
-      />
-      <button
-        type="submit"
-        class="button-19"
-        role="button"
-        style="
-    margin-left: 10px;
-"
-      >Generate</button>
-    </form> }}
-    {{{body}}}
-  </body>
-</html> --}}
 
 <html lang="en">
   <head>
@@ -69,6 +31,17 @@
     </style>
   </head>
   <body>
+    <script>    
+
+const getCopy = async function(){
+    try{const output = document.querySelector('.output')
+    await navigator.clipboard.writeText(output.textContent)
+    alert("Copied:" + output.textContent)}catch(err){
+        console.log(err)
+    }
+}
+
+</script>
     <h1
       style="height: 50px;width: fit-content;padding: 0 auto;padding: auto 0;padding: 0 auto;margin: 20px auto;"
     >URL Shortener</h1>
@@ -115,8 +88,9 @@
     padding:5px;
 "
       >{{output}}</div>
-      <button class="copy">copy</button>
-      <button href="/" class="refresh">Refresh Page</button>
+      <button class="copy" onclick="getCopy()">copy</button>
+      <button class="refresh"><a href="/">Refresh Page</a></div></button>
+      <div>
     </div>
 
   </body>
