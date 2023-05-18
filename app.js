@@ -28,6 +28,7 @@ app.set("view engine", "hbs"); // handlebars
 app.use(express.urlencoded({ extended: true })); // body-parser拿表單資料
 
 ///////////////////////////////////////////////
+
 // home
 app.get("/", (req, res) => {
   res.render("index");
@@ -36,44 +37,35 @@ app.get("/", (req, res) => {
 // get input and render
 app.post("/generate", (req, res) => {
   const { input } = req.body; // 使用者輸入string
-  Url.find({})
+  Url.find()
     .lean()
     .then((data) => {
       const [existUrl] = data.filter((u) => u.origUrl === input);
-      // console.log("existUrl為", existUrl); // {ori:, short:,...}
-
       if (existUrl) {
-        // console.log("URL exisist!");
+        // console.log("URL exist!");
         const { shortUrl } = existUrl;
-        console.log("已有shortUrl是", shortUrl);
-
         return res.render("new", { output: shortUrl });
       }
       // console.log("URL not exist");
-      // const shortUrl = "create new one";
       const shortUrl = generateURL();
-      console.log("新增shortUrl是", shortUrl);
       Url.create({ origUrl: input, shortUrl });
       return res.render("new", { output: shortUrl });
     })
     .catch((err) => console.log(err));
 });
-// render output
+
+// redirect to origURL
 app.get("/:shortUrl", (req, res) => {
   const shortUrl = req.params;
-  console.log("shortUrl", shortUrl); // 取得"/"後面的字串
   Url.find({})
     .lean()
     .then((data) => {
-      console.log(data);
       const [target] = data.filter(
         (d) => d.shortUrl === "http://127.0.0.1:3000/" + shortUrl.shortUrl
       );
-      console.log(target);
-      const targetUrl = target.origUrl;
-      console.log(targetUrl);
-      return res.redirect(targetUrl);
-    });
+      return res.redirect(target.origUrl);
+    })
+    .catch((err) => console.log(err));
 });
 
 /////////////////////////////////////////////
